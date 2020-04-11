@@ -1,0 +1,6 @@
+[submodule "modules/dtw-pack"]
+	path = modules/dtw-pack
+	url = git@github.com:cdbattags/dtw-pack.git
+[submodule "modules/actix-web"]
+	path = modules/actix-web
+	url = git@github.com:cdbattags/actix-web.git

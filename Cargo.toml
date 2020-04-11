@@ -1,0 +1,14 @@
+[package]
+name = "dtw-depot"
+version = "0.1.0"
+authors = ["Christian Battaglia <christian.d.battaglia@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "app"
+path = "src/main.rs"
+
+[dependencies]
+actix-web = "2"
+actix-rt = "1"
+env_logger = "0.7"

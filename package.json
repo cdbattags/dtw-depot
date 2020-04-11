@@ -1,0 +1,17 @@
+{
+    "name": "@dtw/depot",
+    "version": "1.0.0",
+    "description": "actix-web and node.js express",
+    "scripts": {
+        "start": "dtw-pack start:backend ./src/index.ts",
+        "start:local": "./node_modules/.bin/babel-node ./src/index.ts --extensions '.ts' --config-file ./modules/dtw-pack/babel.config.backend.js"
+    },
+    "author": "Christian Battaglia <christian.d.battaglia@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@dtw/pack": "file:modules/dtw-pack",
+        "@types/express": "^4.17.6",
+        "@types/node": "^13.11.1",
+        "express": "^4.17.1"
+    }
+}

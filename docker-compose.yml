@@ -1,0 +1,54 @@
+version: '3.2'
+services:
+  cache:
+    image: redis:alpine
+    volumes:
+      - redis_data:/data
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 'qwerty'
+      POSTGRES_USER: 'root'
+      POSTGRES_DB: 'dtw-depot'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    volumes:
+      - .:/code
+    links:
+      - db
+      - cache
+    depends_on:
+      - db
+      - cache
+
+  schemats:
+    build:
+      context: ./lab
+      dockerfile: ./Dockerfile
+    command: tail -f /dev/null
+    depends_on:
+      - db
+    links:
+      - db
+
+  web:
+    build:
+      context: ./docker
+      dockerfile: ./web/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes_from:
+      - app:ro
+    links:
+      - app
+
+volumes:
+  pg_data:
+  redis_data:
