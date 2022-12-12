@@ -12,7 +12,7 @@
         "@dtw/pack": "file:modules/dtw-pack",
         "@types/express": "^4.17.6",
         "@types/node": "^13.11.1",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "neon-cli": "^0.4.0"
     }
 }
